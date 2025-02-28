@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pizza Maker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Tint&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/global.css">
+    <link rel="stylesheet" href="assets/styles/pizza-maker.css">
+    <script src="assets/scripts/pizza-maker.js"></script>
+</head>
+<body>
+<nav class="gh-navbar">
+    <ul>
+        <li>
+            <a href="https://github.com/ca2los" class="github">
+                <img src="./assets/images/github-stroke-01.svg" alt="Github" width="24" height="24" />
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/ca2los/pizza-maker" class="project">
+                Project
+                <img src="./assets/images/project-stroke.svg" alt="Project" width="24" height="24" />
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/ca2los?tab=repositories" class="repositories">
+                Repositories
+                <img src="./assets/images/repositories-stroke.svg" alt="Repositories" width="24" height="24" />
+            </a>
+        </li>
+        <li>
+            <a href="mailto:test@gmail.com" class="contact">
+                Contact
+                <img src="./assets/images/mail-stroke.svg" alt="Contact" width="24" height="24" />
+            </a>
+        </li>
+        <li>
+            <a href="https://threads.net" class="threads">
+                <img src="./assets/images/threads-stroke-01.svg" alt="Threads" width="24" height="24" />
+            </a>
+        </li>
+    </ul>
+</nav>
+<main class="pizza-maker">
+    <header>
+        <h1><a href="https://ca2los.github.io/pizza-maker/">Pizza Maker</a></h1>
+        <h2>By ca2los</h2>
+        <p>This program is a simulation of a tool that retrieves inputs and return outputs to simulate a checkout order. The idea is to practice essential concepts such as Statements, Expressions, Conditionals, Functions, Loops, Objects, and the DOM interaction.</p>
+    </header>
+    <!-- Name and Contact -->
+    <section class="pm-intro">
+        <form id="pizza-form">
+            <label for="pm-name">Order for:</label>
+            <input type="text" id="pm-name" name="name" minlength="4" maxlength="40" placeholder="Full Name" required>
+            <label for="pm-tel">Contact:</label>
+            <input type="tel" id="pm-tel" name="tel" minlength="12" maxlength="22" placeholder="Telephone" required>
+            <button type="button" onclick="pizzaCustomer()">Submit</button>
+        </form>
+    </section>
+    <!-- Validate Data -->
+    <section id="pm-validate">
+        <div id="table-wrapper"></div>
+    </section>
+    <!-- Pizza Menu -->
+    <section id="pm-menu">
+        <h2>Select the pizza of your preference:</h2>
+        <div class="pm-menu-wrapper">
+            <div class="ticket-preview">
+                <div id="pm-ticket" class="ticket-preview-wrapper"></div>
+            </div>
+            <ul class="pizza-options">
+                <li class="pizza">
+                    <div class="pizza-image">
+                        <img src="./assets/images/pizza-style.svg" alt="Pizza Image">
+                    </div>
+                    <div class="pizza-details">
+                        <h3>Cheese Pizza</h3>
+                        <p>Pizza dough, pizza sauce, mozzarella cheese, parmesan, and garlic.</p>
+                        <p><span>USD $21.50</span></p>
+                        <button class="btn-bookmark" type="button" value="cheese">Select</button>
+                    </div>
+                </li>
+                <li class="pizza">
+                    <div class="pizza-image">
+                        <img src="./assets/images/pizza-style.svg" alt="Pizza Image">
+                    </div>
+                    <div class="pizza-details">
+                        <h3>Italian Pizza</h3>
+                        <p>Smoked mozzarella cheese, meatballs, caramelized onions, and basil.</p>
+                        <p><span>USD $25.99</span></p>
+                        <button class="btn-bookmark" type="button" value="italian">Select</button>
+                    </div>
+                </li>
+                <li class="pizza">
+                    <div class="pizza-image">
+                        <img src="./assets/images/pizza-style.svg" alt="Pizza Image">
+                    </div>
+                    <div class="pizza-details">
+                        <h3>Mexican Pizza</h3>
+                        <p>Fried flour tortillas, refried beans, ground beef, cheese, and taco sauce.</p>
+                        <p><span>USD $22.99</span></p>
+                        <button class="btn-bookmark" type="button" value="mexican">Select</button>
+                    </div>
+                </li>
+                <li class="pizza">
+                    <div class="pizza-image">
+                        <img src="./assets/images/pizza-style.svg" alt="Pizza Image">
+                    </div>
+                    <div class="pizza-details">
+                        <h3>Pepperoni Pizza</h3>
+                        <p>A great crust, gooey cheese, onions, and tons of prime pepperoni.</p>
+                        <p><span>USD $25.99</span></p>
+                        <button class="btn-bookmark" type="button" value="pepperoni">Select</button>
+                    </div>
+                </li>
+            </ul>
+            <ul class="pizza-toppings">
+                <li class="topping" data-value="basil" aria-checked="false">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Basil">
+                        <span>Basil</span>
+                        <span class="price">USD $1.50</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="garlic">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Garlic">
+                        <span>Garlic</span>
+                        <span class="price">USD $0.99</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="ham">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Ham">
+                        <span>Ham</span>
+                        <span class="price">USD $2.99</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="meatballs">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Meatballs">
+                        <span>Meatballs</span>
+                        <span class="price">USD $4.99</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="mushrooms">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Mushrooms">
+                        <span>Mushrooms</span>
+                        <span class="price">USD $1.99</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="olives">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Olives">
+                        <span>Olives</span>
+                        <span class="price">USD $2.50</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="parmesan">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Parmesan">
+                        <span>Parmesan</span>
+                        <span class="price">USD $1.99</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="peppers">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Peppers">
+                        <span>Peppers</span>
+                        <span class="price">USD $2.50</span>
+                    </label>
+                </li>
+                <li class="topping" data-value="sausage">
+                    <label>
+                        <img src="./assets/images/pizza-custom.svg" alt="Toppings: Sausage">
+                        <span>Sausage</span>
+                        <span class="price">USD $3.99</span>
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-wrapper">
+            <button type="button" onclick="location.reload()">Cancel order</button>
+        </div>
+    </section>
+</main>
+<footer>
+    <ul class="left">
+        <li>
+            <a href="https://github.com/ca2los">
+                <img src="./assets/images/github-stroke-02.svg" alt="Github" width="24" height="24" />
+                ca2los
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/ca2los/pizza-maker?tab=MIT-1-ov-file#readme" class="license">
+                <img src="./assets/images/license-stroke.svg" alt="License" width="24" height="24" />
+                License
+            </a>
+        </li>
+        <li>
+            <a href="#" class="repositories">
+                <img src="./assets/images/repositories-stroke.svg" alt="Repositories" width="24" height="24" />
+                Repositories
+            </a>
+        </li>
+        <li>
+            <a href="#" class="contact">
+                <img src="./assets/images/mail-stroke.svg" alt="Contact" width="24" height="24" />
+                Contact
+            </a>
+        </li>
+    </ul>
+    <ul class="right">
+        <li>Copyright © 2025 ca2los LLC. All rights reserved.</li>
+    </ul>
+</footer>
+</body>
+</html>
